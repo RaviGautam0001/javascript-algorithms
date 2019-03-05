@@ -39,5 +39,27 @@ function bubbleShortDsc (arr) {
     return arr;
 }
 
+//Optimized with noSwaps
+function bubbleShortES62015 (arr) {
+    const swap = (arr, idx1, idx2) => {
+        [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    }
+    var noSwaps;
+    for(let i = arr.length; i > 0; i--){
+        noSwaps = true;
+        for(let j = 0; j < i -1; j++){
+            console.log(arr, arr[j], arr[j+1]);
+            if(arr[j] > arr[j+1]) {
+               swap(arr, j, j+1);
+               noSwaps = false;  
+            }
+        }
+      if(noSwaps) break;  
+    }
+    return arr;
+}
+
+bubbleShortES62015([7,1,2,5,9]);
+
  
  bubbleShort([7,1,2,5,9,45,65,25,12,32]);
